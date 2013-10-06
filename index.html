@@ -24,6 +24,13 @@
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
+		<script type="text/javascript"
+  src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -45,29 +52,64 @@
 				</section>
 
 				<section>
+					<h2>Resumo</h2>
+					<p>Antes de abordar a criptografia baseada em curvas elípticas iremos relembrar os algoritmos baseados em chave pública e chave privada mais comuns.</p>
+					<p>...</p>
+					<small>Please welcome mr RSA</small>
+				</section>
+
+				<section>
 					<section><h2>RSA</h2></section>
 					<section>
 					<h3>Geração de Chave</h3>
 					<ul>
-					<li>Geração de dois inteiros aleatórios e distintos p e q</li>
-					<li>Computar n=pq tal que <mrow><mi>&Phi;</mi><mo>=</mo><mrow><mo maxsize="1.00em" form="prefix">(</mo><mi>p</mi>
-					<mo>-</mo><mn>1</mn><mo maxsize="1.00em" form="postfix">)</mo></mrow><mrow><mo maxsize="1.00em" form="prefix">(</mo>
-					<mi>q</mi><mo>-</mo><mn>1</mn><mo maxsize="1.00em" form="postfix">)</mo></mrow></mrow> </li>
-					<li>Escolher um inteiro <mi>&alpha;</mi>, com <mrow><mn>1</mn><mo>&lt;</mo><mi>&alpha;</mi><mo>&lt;</mo><mi>&Phi;</mi></mrow>
-					tal que gdc(<mi>&alpha;</mi>,<mi>&Phi;</mi>)=1
+					<li>Geração de dois inteiros aleatórios e distintos $p$ e $q$</li>
+					<li>Computar $n=pq$ tal que $\phi=(p-1)(q-1)$ </li>
+					<li>Escolher um inteiro $\alpha$, com $1<\alpha<\phi$ tal que $\gcd(\alpha,\phi)=1$
 					</li>
-					<li>Usar o algoritmo de Euclides para computar 1 &lt; d &lt; <mi>&Phi;</mi> tal que <mi>&alpha;</mi>d<mo>&equiv;</mo>1 mod <mi>&Phi;</mi></li>
-					<li>O par (n,<mi>&alpha;</mi>) constitui a chave pública sendo d a chave privada</li>
+					<li>Usar o algoritmo de Euclides para computar $1 < d < \phi$ tal que $\alpha d \equiv 1 \mod \phi$</li>
+					<li>O par $(n,\alpha)$ constitui a chave pública sendo d a chave privada</li>
 					</ul>
 					</section>
 					<section>
-					<h3>Cifrar/Decifrar</h3>
+					<h3>Cifrar</h3>
 					<ul>
-					<li></li>
+					<li>Carregar chave publica $(n,\alpha)$</li>
+					<li>Considerar a mensagem como sendo um número $m$ pertencente ao intervalo $[0,n-1]$</li>
+					<li>Mensagem cifrada $c=m^e\mod n$</li>
+					
 					</ul>
+					</section>
+					<section>
+					<h3>Decifrar</h3>
+					<p>A mensagem cifrada é convertida na mensagem original a partir da operação $$m = c^d\mod n$$</p>
 					</section>
 					<aside class="notes">As duas partes são responsáveis pela criação de um par de chaves</aside>
 						
+				</section>
+
+				<section>
+					<section>
+					<h2>El Gammal</h2>
+					</section>
+					<section>
+					<h3>Geração de Chave</h3>
+					<p>Para cifrar dados usando o algoritmo El Gammal cada parte envolvida deverá gerar um par de chaves, uma privada e uma pública.</p>
+					</section>
+					<section>
+					<h3>Geração de Chave</h3>
+					<ul>
+					<li>Gerar um inteiro $p$ e o respectivo gerador $\alpha$ para o grupo formado pelos inteiros módulo $p$, $\mathbb{Z}^*_p$</li>
+					<li>Seleccionar um inteiro $a\in[1,p-2]$ e computar $\alpha^a\mod p$</li>
+					<li>Chave pública $(p,\alpha,\alpha^a)$ e chave privada $a$</li>
+					</ul>
+					</section>
+
+					<section>
+					</section>
+
+					<section>
+					</section>
 				</section>
 
 				<section>
