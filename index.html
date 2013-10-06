@@ -84,6 +84,12 @@
 					<h3>Decifrar</h3>
 					<p>A mensagem cifrada é convertida na mensagem original a partir da operação $$m = c^d\mod n$$</p>
 					</section>
+
+                    <section>
+                        <h2>Hard Problem As Hell</h2>
+                        <img src="http://replygif.net/i/258.gif"></img>
+                        <p>Factorização de um número $n$ em produto de primos $n=pq$, onde $p,q$ são primos</p>
+                    </section>
 					<aside class="notes">As duas partes são responsáveis pela criação de um par de chaves</aside>
 						
 				</section>
@@ -106,17 +112,42 @@
 					</section>
 
 					<section>
+                        <h3>Cifrar</h3>
+                        <p>Bob cifra a mensagem $m$ para Alice da seguinte forma</p>
+                        <ul>
+                        <li>Bob obtem a chave pública da Alice $(p,\alpha,\alpha^a)$</li>
+                        <li>A mensagem é representada como um número $m$ onde $m\in[0,\ldots,p-1]$</li>
+                        <li>Seleccionar inteiro aleatório $k\in [1,\ldots,p-2]$ </li>
+                        <li>Computar $$\gamma=\alpha^k\mod p$$ $$\delta=m.(\alpha^a)^k\mod p$$</li>
+                        <li>Enviar para a Alice $c=(\gamma,\delta)$ </li>
+                        </ul>
 					</section>
 
 					<section>
+						<h3>Decifrar</h3>
+						<p>Alice recupera a mensagem $m$ a partir do cyphertext $c$ gerado por Bob
+                        <ul>
+                        <li>Usar a chave privada $a$ para computar $\gamma^{(p-1-a)}\mod p$</li>
+                        <li>Computar a mensagem original $m=(\gamma^{-a})\delta \mod p$</li>
+                        </ul>
+                        <aside class="notes">Notar que $\gamma^{(p-1-a)} = a^{-k}$</aside>
 					</section>
+
+                    <section>
+                        <h2>Hard Problem As Hell</h2>
+                        <img src="http://replygif.net/i/835.gif"></img>
+                        <p>A segurança deste modelo reside na dificuldade em resolver o problema do logaritmo discreto</p>
+                        <p>$a=log_\alpha(\beta)$, $\beta=\alpha^a$</p>
+                    </section>
 				</section>
 
 				<section>
 					<section>
 						<h2>Elliptic Curve Cryptography (ECC)</h2>
-						<h3>Algumas definições</h3>
 					</section>
+                    <section>
+                        <h2>Alguns conceitos</h2>
+                    </section>
 					<section>
 						<h3>Definição de curva elíptica</h3>
 					</section>
