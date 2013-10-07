@@ -52,22 +52,20 @@
 				</section>
 
 				<section>
-					<h2>Resumo</h2>
-					<p>Antes de abordar a criptografia baseada em curvas elípticas iremos relembrar os algoritmos baseados em chave pública e chave privada mais comuns.</p>
-					<p>...</p>
-					<small>Please welcome mr RSA</small>
-				</section>
-
-				<section>
 					<section>
-                        <h2>RSA</h2>
-                    </section>
+            <h2>RSA</h2>
+            <ul>
+              <li>Algorithm for public key cryptography</li>
+              <li>Published in 1977</li>
+              <li>Described in PKCS#1</li>
+            </ul> 
+          </section>
 					<section>
-					<h3>Geração de Chave</h3>
+					<h3>Key Generation</h3>
 					<ul>
-					<li>Geração de dois inteiros aleatórios e distintos $p$ e $q$</li>
-					<li>Computar $n=pq$ tal que $\phi=(p-1)(q-1)$ </li>
-					<li>Escolher um inteiro $\alpha$, com $1<\alpha<\phi$ tal que $\gcd(\alpha,\phi)=1$
+					<li>Choose two random and prime numbers $p$ e $q$</li>
+					<li>Compute $n=pq$ and $\phi=(p-1)(q-1)$. $n$ is the modulus and the key length </li>
+					<li>Choose an integer $\alpha$ such that $1<\alpha<\phi$ tal que $\gcd(\alpha,\phi)=1$
 					</li>
 					<li>Usar o algoritmo de Euclides para computar $1 < d < \phi$ tal que $\alpha d \equiv 1 \mod \phi$</li>
 					<li>O par $(n,\alpha)$ constitui a chave pública sendo d a chave privada</li>
